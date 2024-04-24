@@ -37,13 +37,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 	//code initializing and creating variables for allergy count and cold count, setting them equal to 0
-        var musquitoBite_count = 0;
+        var mosquitoBite_count = 0;
         var skeeterSyndrome_count = 0;
 	
         /*creating the functions that adds to the appropritate count based on what button is clicked and these 
 	will be called on when button is clicked*/
-	function musquitoAdd(){
-            musquitoBite_count = musquitoBite_count + 1;
+	function mosquitoAdd(){
+            mosquitoBite_count = mosquitoBite_count + 1;
         }
 
         function skeeterAdd(){
@@ -53,7 +53,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	//creating the function to calculate the final percentages and to display the results
 	function calculateResults(){
 		//creatinig variables to store the calculated percentages, and performing arthmetic to determine these percentages
-		var m_Percent = musquitoBite_count/5 * 100;
+		var m_Percent = mosquitoBite_count/5 * 100;
 		var q_Percent = skeeterSyndrome_count/5 * 100;
 		//code to alter HTML content which will aid in displaying the results in a easy manner
 		var resultText = document.getElementById("results");
@@ -143,7 +143,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <!-- code to create the header and introductory page, contains a lot of text that will be displayed on page -->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Musquito bite or Skeeter Syndrome?</h1>
+	<h1>Mosquito bite or Skeeter Syndrome?</h1>
 </div>
 	
 <div id="content" class="w3-container">
@@ -166,7 +166,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<!--display question 1-->
         <p>How long have you had the mosquito bite?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#two" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> 1-3 days </a>
+	<a href="#two" onclick= "mosquitoAdd();" class="w3-btn w3-grey w3-round"> 1-3 days </a>
 	<a href="#two" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> 5+ days </a>
     	</div>
 	
@@ -183,7 +183,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p> Does the bite feel warm to the touch?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on, but the functions are switched to match appropriate symptoms-->
 	<a href="#three" onclick= "skeeterAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#three" onclick= "musquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#three" onclick= "mosquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>	
 	
@@ -199,7 +199,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p>Is your temperature greater than 99.5 degrees Fahrenheit?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
 	<a href="#four" onclick= "skeeterAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#four" onclick= "musquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#four" onclick= "mosquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>
 
@@ -214,7 +214,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<!--display question 4-->
 	<p>Do you have swollen lymph nodes?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#five" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#five" onclick= "mosquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
 	<a href="#five" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>
@@ -237,7 +237,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       	</div>
 	<button onclick="showCanvas()">Next</button>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#five" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#five" onclick= "mosquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
 	<a href="#five" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>
