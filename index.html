@@ -92,7 +92,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
  }
 
-/* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
+/* handleImageonload necessary to keep javascripts from running before the app gets a chance to load entirely. */
  function handleImageUpload() {
         var fileInput = document.getElementById('fileInput');
         var messageDisplayArea = document.getElementById('messageDisplayArea');
@@ -100,21 +100,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var file = fileInput.files[0];
         var imageType = /image.*/;
 
-        if (file.type.match(imageType)) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                messageDisplayArea.innerHTML = "You picked an image!";
-                var img = new Image();
-                img.onload = function() {
-                    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-                }
-                img.src = reader.result;
-            }
-            reader.readAsDataURL(file);
-        } else {
-            messageDisplayArea.innerHTML = "File not supported!"
-        }
+       if (file.type.match(imageType)) {
+        messageDisplayArea.innerHTML = "You picked an image!";
+        imgPreview.src = URL.createObjectURL(file); // Display the uploaded image
+    } else {
+        messageDisplayArea.innerHTML = "File not supported!";
     }
+}
+
 
   </script>
 
