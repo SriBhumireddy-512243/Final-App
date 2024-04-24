@@ -17,7 +17,6 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-To determine if an individuals symptoms align with those of a cold or those of allergies. 
  
 Known Issues:
 can be more accurate with more questions in the future
@@ -38,24 +37,24 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 	//code initializing and creating variables for allergy count and cold count, setting them equal to 0
-        var allergy_count = 0;
-        var cold_count = 0;
+        var musquitoBite_count = 0;
+        var skeeterSyndrome_count = 0;
 	
         /*creating the functions that adds to the appropritate count based on what button is clicked and these 
 	will be called on when button is clicked*/
-	function allergyAdd(){
-            allergy_count = allergy_count + 1;
+	function musquitoAdd(){
+            musquitoBite_count = musquitoBite_count + 1;
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function skeeterAdd(){
+            skeeterSyndrome_count = skeeterSyndrome_count + 1;
         }
 
 	//creating the function to calculate the final percentages and to display the results
 	function calculateResults(){
 		//creatinig variables to store the calculated percentages, and performing arthmetic to determine these percentages
-		var a_Percent = allergy_count/4 * 100;
-		var c_Percent = cold_count/4 * 100;
+		var m_Percent = musquitoBite_count/5 * 100;
+		var q_Percent = skeeterSyndrome_count/5 * 100;
 		//code to alter HTML content which will aid in displaying the results in a easy manner
 		var resultText = document.getElementById("results");
 		resultText.innerHTML = "Probability it is allergies =" + a_Percent + "<br> Probability it is a cold =" + c_Percent;
@@ -89,13 +88,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <!-- code to create the header and introductory page, contains a lot of text that will be displayed on page -->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Musquito bite or Skeeter Syndrome?</h1>
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Are you concerned about whether or not your recent mosquito bite is normal or an allergic reaction? Take this short 4 question survey to find out! Click the button below to start.</p>
 	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started! </a>
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
@@ -110,10 +109,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
 	<!--display question 1-->
-        <p>Are your eyes watery or itchy?</p>
+        <p>How long have you had the mosquito bite?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#two" onclick= "allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#two" onclick= "coldAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#two" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> 1-3 days </a>
+	<a href="#two" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> 5+ days </a>
     	</div>
 	
 </div>
@@ -126,10 +125,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 	<!--display question 2-->
-	<p>Do you have a fever?</p>
+	<p> Does the bite feel warm to the touch?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on, but the functions are switched to match appropriate symptoms-->
-	<a href="#three" onclick= "coldAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#three" onclick= "allergyAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#three" onclick= "skeeterAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#three" onclick= "musquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>	
 	
@@ -142,14 +141,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 	<!--display question 3-->
-	<p>Do you have a sore throat?</p>
+	<p>Is your temperature greater than 99.5 degrees Fahrenheit?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#four" onclick= "coldAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#four" onclick= "allergyAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#four" onclick= "skeeterAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#four" onclick= "musquitoAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>
 
-<!-- code to create page with third question-->
+<!-- code to create page with fourth question-->
 <div class="page" id="four">
 	<div class="w3-container w3-flat-carrot">
 		<!--creating header-->
@@ -158,15 +157,32 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 	<!--display question 4-->
-	<p>Are your symptoms seasonal or chronic?</p>
+	<p>Do you have swollen lymph nodes?</p>
 	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#five" onclick= "allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#five" onclick= "coldAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<a href="#five" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#five" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	</div>
+</div>
+
+<!-- code to create page with fifth question-->
+<div class="page" id="five">
+	<div class="w3-container w3-flat-carrot">
+		<!--creating header-->
+		<h1>Question 5</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<!--display question 5-->
+	<p> Upload a picture of your mosquito bite (make sure to include 10 mm of skin around the bite!) Then click which button you feel your bite most resembles.p>
+	
+	<!--creating two buttons with functions attached them which are called if clicked on-->
+	<a href="#five" onclick= "musquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+	<a href="#five" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>
 
 <!--code to create fifth page which asks user to click button which calculates results -->
-<div class="page" id="five">
+<div class="page" id="six">
 	<div class="w3-container w3-flat-carrot">
 		<!--creating header-->
 		<h1>Results</h1>
