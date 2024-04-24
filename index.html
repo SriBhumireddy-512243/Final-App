@@ -93,40 +93,29 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  }
 
 /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
- window.onload = function() {
-  var fileInput = document.getElementById('fileInput');
-  var messageDisplayArea = document.getElementById('messageDisplayArea');
-  /* fileInput.addEventListener looks for any change in the <input> tag indicating that the user has selected a file (picture). */
-  fileInput.addEventListener('change', function(e) {
-    var file = fileInput.files[0];
-    var imageType = /image.*/;
-    /* if (file.type.match(imageType)) checks that the selected file is indeed an image. */
-    if (file.type.match(imageType)) {
-      /* new FileReader(); and reader.onload start some kind of file reading process in javaScript. I do not understand why this is necessary although it may simply slow things down to let the image load. */
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        /* messageDisplayArea.innerHTML not needed but allows you to send a message at this point in the program. */
-        messageDisplayArea.innerHTML = "You picked an image!";
-        /* new Image() and img.onload start some kind of new image creation process in javaScript. I do not understand why this is necessary although it may simply slow things down to let the image load. */
-        var img = new Image();
-        img.onload = function() {
-	const imageData = context.getImageData(0,0,600,500);
-        const data = imageData.data; 
-          /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-        
-          drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-	}
-	img.src = reader.result;
-      }
-	reader.readAsDataURL(file);
-    } // end of the if statement checking that file is an image
-    else
-    {
-      // this is what happens if the orignial file selected is not an image file
-      messageDisplayArea.innerHTML = "File not supported!"
-    } // end of the else statement if file in NOT an image
-  }); // end of the fileInput.addEventListener function
- } // end of the window.onload function
+ function handleImageUpload() {
+        var fileInput = document.getElementById('fileInput');
+        var messageDisplayArea = document.getElementById('messageDisplayArea');
+
+        var file = fileInput.files[0];
+        var imageType = /image.*/;
+
+        if (file.type.match(imageType)) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                messageDisplayArea.innerHTML = "You picked an image!";
+                var img = new Image();
+                img.onload = function() {
+                    drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
+                }
+                img.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+        } else {
+            messageDisplayArea.innerHTML = "File not supported!"
+        }
+    }
+
   </script>
 
 
@@ -247,10 +236,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         Press orange button to create or choose image file:
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       	</div>
-	<button onclick="drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500)">Next</button>
-	<!--creating two buttons with functions attached them which are called if clicked on-->
-	<a href="#five" onclick= "mosquitoAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-	<a href="#five" onclick= "skeeterAdd();"class="w3-btn w3-grey w3-round"> No </a>
+	<button onclick="handleImageUpload();">Next</button>
 	</div>
 </div>
 
